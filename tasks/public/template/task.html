@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主界面</title>
+</head>
+<body>
+	<div data-role="page" id="main-page">
+		<div data-role="header" data-position="fixed">
+			<a  href="#addTask" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left ui-nodisc-icon ui-btn-b" data-rel="popup" data-transition="fade">添加</a>
+			<h3>今日程</h3>
+			<a href="#history-info" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-icon-left ui-btn-right ui-nodisc-icon ui-btn-b" data-transition="fade">历史记录</a>
+		</div><!-- /header -->
+		<div role="main" class="task-main">
+			<div data-role="listview" data-inset="true">
+				<li data-role="list-divider">2015年4月13日<span class="ui-li-count">3</span></li>
+				<li>
+					<a href="#"><h2>目标：</h2><p>完成算法学习</p><span class="ui-li-aside ui-mini">未完成<span></a>
+					<a href="#taskEdit" data-rel="popup" class="ui-btn ui-btn-corner ui-icon-gear">
+					</a></li>
+				<li>
+					<a href="#"><h2>目标：</h2><p>完成算法学习</p><span class="ui-li-aside ui-mini">未完成<span></a>
+					<a href="#taskEdit" data-rel="popup" class="ui-btn ui-btn-corner ui-icon-gear">
+					</a></li>
+				<li>
+					<a href="#"><h2>目标：</h2><p>完成算法学习</p></a>
+					<a href="#taskEdit" data-rel="popup" class="ui-btn ui-btn-corner ui-icon-gear">
+					</a></li>
+				<li>
+					<a href="#"><h2>目标：</h2><p>完成算法学习</p></a>
+					<a href="#taskEdit" data-rel="popup" class="ui-btn ui-btn-corner ui-icon-gear">
+					</a></li>
+				<li>
+					<a href="#"><h2>目标：</h2><p>完成算法学习</p></a>
+					<a href="#taskEdit" data-rel="popup" class="ui-btn ui-btn-corner ui-icon-gear">
+					</a></li>
+				<li>
+					<a href="#"><h2>目标：</h2><p>完成算法学习</p></a>
+					<a href="#taskEdit" data-rel="popup" class="ui-btn ui-btn-corner ui-icon-gear">
+					</a></li>
+			</ui></div>
+		</div><!-- /main -->
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="left" >
+				<ul>
+				<li><a href="#" data-icon="home"  class="ui-btn-active">今日任务</a></li>
+				<li><a href="#" data-icon="edit">今日总结</a></li>
+				<li><a href="#" data-icon="info">任务统计</a></li>
+				</ul>
+			</div>
+		</div><!-- /footer -->
+		<div data-role="panel" id="addTask" data-position="right" data-display="overlay">
+			<div data-role="listview" style="padding:5px 10px;">
+				<label for="time">时间</label>
+				<input type="datetime-local" name="time" id="time">
+				<label for="title">题目</label>
+				<input name="title" id="title">
+				<label for="object">目标</label>
+				<textarea name="object" id="object"></textarea>
+				<label for="state">状态</label>
+				<select name="state" id="state" data-role="slider" data-mini="true">
+					<option value="off">undone</option>
+					<option value="on">done</option>
+				</select>
+				<button class="ui-btn ui-icon-check ui-btn-icon-left" data-rel="back">确认</button>
+			</div>
+		</div><!-- /addTask panel -->
+		<div data-role="popup" id="taskEdit">
+			<div data-role="controlgroup" style="margin:0" data-tolerent="">
+					<a href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">删除</a>
+					<a href="#" class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-left">修改</a>
+			</div>
+		</div><!-- /taskEdit popup -->
+	</div><!-- /main-page -->
+</body>
+</html>

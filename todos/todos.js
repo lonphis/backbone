@@ -175,7 +175,7 @@ $(function(){
       this.allCheckbox = this.$("#toggle-all")[0];
 		//添加监听事件，这是backbone的自定义事件，当模型变化时，通知视图
       this.listenTo(Todos, 'add', this.addOne);
-      this.listenTo(Todos, 'reset', this.addAll);
+      //this.listenTo(Todos, 'reset', this.addAll);
       this.listenTo(Todos, 'all', this.render);
 
       this.footer = this.$('footer');

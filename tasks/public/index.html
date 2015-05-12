@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务管理</title>
+    <script data-main="main.js" src="lib/require.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="lib/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="lib/date/jquery.mobile.datepicker.css" />
+</head>
+<body>
+<div data-role="page" id="main-page"></div> <!--/main-page -->
+<div data-role="page" id="history-page"></div><!--/history-page-->
+<script type="text/template" id="page-Task">
+
+    <div data-role="header" data-position="fixed">
+        <a  href="#addTask" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left ui-nodisc-icon ui-btn-b" data-transition="fade" id="bt-addPanel">添加</a>
+        <h3>今日程</h3>
+        <a href="#history-info" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-icon-left ui-btn-right ui-nodisc-icon ui-btn-b" data-transition="fade" id="bt-history">历史记录</a>
+    </div><!-- /header -->
+    <div role="main" class="task-main">
+        <ul data-role="listview" data-inset="true" id="tasklist">
+
+        </ul>
+    </div><!-- /main -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="left" >
+            <ul>
+                <li><a href="#" data-icon="home"  class="ui-btn-active">今日任务</a></li>
+                <li><a href="#" data-icon="edit">今日总结</a></li>
+                <li><a href="#" data-icon="info">任务统计</a></li>
+            </ul>
+        </div>
+    </div><!-- /footer -->
+</script>
+
+<!--panel of addTask-->
+<script type="text/template" id="popup-controlTask">
+    <div data-role="popup" id="popupControl">
+        <div data-role="controlgroup" style="margin:0">
+            <a href="#" class="ui-btn ui-btn-inset ui-corner-all ui-icon-delete ui-btn-icon-left" id="taskControl-del">删除</a>
+            <a href="#addTask" class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-left" id="taskControl-edit">修改</a>
+        </div>
+    </div>
+</script>
+<!--panel of addTask-->
+<script type="text/template" id="form-panel">
+    <div data-role="panel" id="addTask" data-position="right" data-display="overlay">
+        <div data-role="listview" style="padding:5px 10px;">
+            <label for="title">题目</label>
+            <input name="title" id="title" value="<%=title%>">
+            <label for="content">目标</label>
+            <textarea name="content" id="content"><%=content%></textarea>
+            <label for="state">状态</label>
+
+            <select name="state" id="state" data-role="slider" data-mini="true">
+                <%if(state=='1'){%>
+                <option value="0">undone</option>
+                <option value="1" checked="checked">done</option>
+                <%}else{%>
+                <option value="0">undone</option>
+                <option value="1">done</option>
+                <%}%>
+            </select>
+            <button class="ui-btn ui-icon-check ui-btn-icon-left" id="newTask-confirm">确认</button>
+        </div>
+    </div>
+</script>
+<!--title of task view-->
+<script type="text/template" id="taskTitleView">
+    <%=time%><span class="ui-li-count"><%=count%></span>
+</script>
+<!--task view-->
+<script type="text/template" id="taskView">
+    <a href="#" class="task-content"><h2><%=title%></h2><p><%=content%></p><span class="ui-li-aside ui-mini"><%=state%><span></a>
+    <a href="#popupControl" class="ui-btn ui-btn-corner ui-icon-gear" id="taskControl" data-rel="popup"></a>
+</script>
+
+<!--history view-->
+<script type="text/template" id="historyView">
+    <div data-role="header" data-position="fixed">
+        <a href="#main-page" class="ui-btn ui-btn-inline ui-icon-back ui-btn-icon-left ui-nodisc-icon ui-btn-b" data-transition="fade">返回</a>
+        <h3>任务历史记录</h3>
+        <a href="#" class="ui-btn ui-btn-inline ui-icon-minus ui-btn-icon-left ui-btn-right ui-nodisc-icon ui-btn-b">清空记录</a>
+    </div><!-- /header -->
+    <div role="main" class="record-main">
+        <%if(time){%>
+        <div role="task-outline" class="ui-bar">
+            <h2><%=time%></h2><a href="#" id="btn-moreDetail" class="ui-btn ui-btn-inline ui-btn-right ui-btn-b" style="z-index:9999">详情</a>
+            <div class="ui-bar">
+                <span>完成进度：</span><progress min="0" max="100" value="<%=progressValue%>"></progress>
+                <span><%= progressValue%>%</span>
+            </div>
+        </div> <%}%>
+        <div id="calendar" class="ui-bar">
+            <input type="text" id="dateinput" class="date-input-inline" data-inline="true" data-role="date">
+        </div>
+    </div><!-- /main -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="left" >
+            <ul>
+                <li><a href="#" data-icon="home" class="ui-btn-active">今日任务</a></li>
+                <li><a href="#" data-icon="edit">今日总结</a></li>
+                <li><a href="#" data-icon="info">任务统计</a></li>
+            </ul>
+        </div>
+    </div><!-- /footer -->
+</script>
+
+</body>
+</html>

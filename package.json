@@ -1,0 +1,23 @@
+{
+  "name": "backbone",
+  "version": "0.0.1",
+  "description": "this is a test for backbone",
+  "main": "todo1/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hello": "echo say hello"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lonphis/backbone.git"
+  },
+  "keywords": [
+    "tos"
+  ],
+  "author": "lonphis",
+  "license": "mit",
+  "bugs": {
+    "url": "https://github.com/lonphis/backbone/issues"
+  },
+  "homepage": "https://github.com/lonphis/backbone"
+}
